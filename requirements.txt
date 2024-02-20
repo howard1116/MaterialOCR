@@ -1,0 +1,9 @@
+PyMuPDF
+torchvision
+git+https://github.com/facebookresearch/detectron2.git@v0.5#egg=detectron2
+layoutparser
+paddlepaddle-gpu==2.6.0
+paddleocr
+img2table
+
+# !apt install tesseract-ocr
