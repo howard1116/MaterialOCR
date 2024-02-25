@@ -1,2 +1,4 @@
 data/*
+data_demo/image/*
+data_demo/layout/*
 lib/*
