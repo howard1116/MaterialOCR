@@ -5,8 +5,8 @@ import hashlib
 import threading
 from tqdm import tqdm
 
-input_dir = 'data/paper'
-output_dir = 'data/image'
+input_dir = 'data_demo/paper'
+output_dir = 'data_demo/image'
 
 def extract_image_from_pdf(input_file_name):
     md5 = hashlib.md5(input_file_name.encode('utf-8')).hexdigest()

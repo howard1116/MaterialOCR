@@ -5,8 +5,8 @@ import shutil
 from tqdm import tqdm
 import layoutparser as lp
 
-input_dir = 'data/image'
-output_dir = 'data/layout'
+input_dir = 'data_demo/image'
+output_dir = 'data_demo/layout'
 model = lp.Detectron2LayoutModel('lp://PubLayNet/faster_rcnn_R_50_FPN_3x/config',
                                 #  'lp://PubLayNet/mask_rcnn_X_101_32x8d_FPN_3x/config',
                                 extra_config=["MODEL.ROI_HEADS.SCORE_THRESH_TEST", 0.8],

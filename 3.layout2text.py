@@ -7,9 +7,9 @@ from paddleocr import PaddleOCR
 # from img2table.ocr import TesseractOCR
 # from img2table.document import Image
 
-image_dir = 'data/image'
-layout_dir = 'data/layout'
-output_dir = 'data/text'
+image_dir = 'data_demo/image'
+layout_dir = 'data_demo/layout'
+output_dir = 'data_demo/text'
 if (not os.path.isdir(output_dir)):
   os.mkdir(output_dir)
 
