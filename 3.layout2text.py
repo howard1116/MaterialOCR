@@ -3,8 +3,9 @@ import cv2
 import json
 from tqdm import tqdm
 import layoutparser as lp
+import paddle
+paddle.disable_signal_handler()
 from paddleocr import PaddleOCR
-# from img2table.ocr import TesseractOCR
 # from img2table.document import Image
 
 image_dir = 'data_demo/image'
@@ -14,15 +15,9 @@ if (not os.path.isdir(output_dir)):
   os.mkdir(output_dir)
 
 # def tesseractocr(image):
-#     import layoutparser as lp
 #     ocr_agent = lp.TesseractAgent(languages = ['eng', 'chi_sim'])
 #     return ocr_agent.detect(image)
-# import pytesseract
-# result = pytesseract.image_to_string(
-#     image, timeout=0, lang='chi_sim', config = '--oem 1 --psm 3'
-# )
 
-# ocr = TesseractOCR(n_threads=1, lang="eng")
 engine = PaddleOCR(enable_mkldnn = True, use_angle_cls = True, show_log = False)
 def paddleocr(image):
     result = engine.ocr(image)[0]
@@ -58,6 +53,7 @@ def extract_text_from_subimage(md5, bar):
             for b in blocks:
                 if (b.type == 'Title' or b.type == 'Text'):
                     sub_image = b.pad(left=5, right=5, top=5, bottom=5).crop_image(image)
+                    # b.text = tesseractocr(sub_image)
                     b.text = paddleocr(sub_image)
                     page_text.write(b.text)
                     all_text.append(b.text)

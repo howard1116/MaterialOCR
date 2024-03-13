@@ -1,4 +1,6 @@
 import os
+os.environ['HTTP_PROXY'] = 'http://h10-r9000p:7890'
+os.environ['HTTPS_PROXY'] = 'https://h10-r9000p:7890'
 import cv2
 import json
 import shutil
